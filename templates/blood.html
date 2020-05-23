@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/blood.css')}}">
+{% endblock %}
+{% block title %}
+
+
+    <section class="blog-details-section spad">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-7 "><!--left-blog-pad-->
+                    <div class="popup_box">  <!--bd-text-->
+                        <div class="comment-form">
+                            <div class="popup_inner">
+
+<br>
+<br>
+<br>
+                            <h3>
+                                <span>Become a blood donor</span>
+                                </h3>
+                            <form action="/reg_donor" method= "POST" onsubmit="return success()">
+                                <div class="row">
+                                    <div class="col-xl-9">
+                                        <input type="text" name="username" placeholder="Name">
+                                    </div>
+                                    <div class="col-xl-9">
+                                        <input type="text" name="phone" placeholder="Phone Number">
+                                    </div>
+                                    <div class="col-xl-9">
+                                        <input type="text" name="age" placeholder="Age">
+                                    </div>
+<!--                                     <div class="col-xl-9">
+                                            <br>
+                                            <h5>Gender:</h5>
+                                            <br>
+                                            <label class="containerradio">Male
+                                              <input type="radio" checked="checked" name="radio">
+                                              <span class="checkmarkradio"></span>
+                                            </label>
+
+                                            <label class="containerradio">Female
+                                              <input type="radio" name="radio">
+                                              <span class="checkmarkradio"></span>
+                                            </label>
+                                    </div> -->
+                                    <div class="col-xl-9">
+                                        <input type="text" name="weight" placeholder="Weight">
+                                    </div>
+                                    
+                                    <div class="col-xl-9">
+                                        <input type="text" name="bloodgroup" placeholder="Blood Group">
+                                    </div>
+                                    <div class="col-xl-9">
+                                        <textarea name="address" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Address"></textarea>
+                                    </div>
+                                    <div class="col-xl-4" >
+                                        <br>
+                                        <button type="submit" class="boxed-btn3">Register</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Section End -->
+
+    <!-- Footer Section Begin -->
+    
+    <script>
+function success() {           
+            alert("Thank you! We'll soon reach you !")
+            return true;
+}
+</script>
+    
+{% endblock %}

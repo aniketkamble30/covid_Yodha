@@ -1,0 +1,367 @@
+
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/adminPageNew.css')}}">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+{% endblock %}
+
+{% block title %}
+
+    <!-- slider_area_start -->
+
+    <!-- slider_area_end -->
+
+    <!-- welcome_clicnic_area_start -->
+    <div class="welcome_clicnic_area" id="start_page">
+        <div class="container">
+			<center>
+				<button class="boxed-btn" onclick="myFunction('line')">Line Graph</button>
+				<button class="boxed-btn" onclick="myFunction('bar')">Bar Graph</button>
+                <button class="boxed-btn" onclick="myFunction('pie')">Pie Chart</button>
+                <a href="#map_start"><button class="boxed-btn" >Blood Donation Map</button></a>
+            </center>
+            <br>
+            <br>
+            <div class="row align-items-center">
+			  <div class="col-md-3" style="height: auto;"></div>			
+				<div class="col-md-6" id="bar_graph">
+                    <canvas id="chart" width="600" height="400"></canvas>
+    <script>
+      var pieData = [
+        {% for i in set %}
+          {
+            value: {{i[0]}},
+            label: "{{i[1]}}",
+            color : "{{i[2]}}",
+            labelColor: 'bla',
+            labelFontSize: '16'
+          },
+        {% endfor %}
+      ];
+
+      // get bar chart canvas
+      var mychart = document.getElementById("chart").getContext("2d");
+      steps = 10
+      max = {{ max }}
+
+      // draw pie chart
+      var ctx = document.getElementById("chart").getContext("2d");
+      new Chart(ctx).Pie(pieData);
+
+    </script>
+                </div>
+			
+				<div class="col-md-6" id="Pie_graph"></div>
+                  <div class="col-md-3"></div>
+                </div>
+              </div>
+			</div>
+			
+            <div class="welcome_clicnic_area" style="padding-top: 40px;" id="map_start">
+                <div class="container">
+                    <h3 style="text-align: center; font-family: 'Roboto';">Blood Donation Requests Map</h3>
+                    <br>
+                    <br>
+                    <div class="row align-items-center">
+                        <div class="col-md-8" id="map" style="height: 480px; position: relative; overflow: hidden;">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <p>
+                                <table class="myTablee">
+                                    <tr class="myTRR">
+                                      <td class="myTDD">0 - 100</td>
+                                      <td class="myTDD" style="background-color: #fff0e1;"></td>
+                                    </tr>
+                                    <tr class="myTRR">
+                                      <td class="myTDD">100 - 200</td>
+                                      <td class="myTDD" style="background-color: #fdcf9f"></td>
+                                    </tr>
+                                    <tr class="myTRR">
+                                      <td class="myTDD">200 - 300</td>
+                                      <td class="myTDD" style="background-color: #fb8735"></td>
+                                    </tr>
+                                    <tr class="myTRR">
+                                      <td class="myTDD">300 - 400</td>
+                                      <td class="myTDD" style="background-color: #de4f05"></td>
+                                    </tr>
+                                    <tr class="myTRR">
+                                      <td class="myTDD"> > 400</td>
+                                      <td class="myTDD" style="background-color: #963003"></td>
+                                    </tr>
+                                  </table>
+                                  <div class="text-danger h3" role="alert">
+                                      <br>
+                                    Mumbai has the highest requests for blood donation.
+                                  </div>
+                            </p>
+                        </div>
+                    </div>
+                    <br><br><br><br><br>
+            <center>
+                <div class="w-100"></div>
+                <div class="row align-items-center">
+                <div class="col">                    
+                    <a href="/mumbai" class="boxed-btn">Volunteers</a>
+                </div>
+                <div class="col align-items-center">                    
+                    <a href="/medical" class="boxed-btn">Medicals</a>
+                </div>
+                <div class="col">                    
+                    <a href="/sealeduser" class="boxed-btn">Sealed Area</a>
+                </div>
+            </div>
+            <br><br><br><br><br>
+            <div class="row align-items-center">
+                <div class="col"></div>
+                <div class="col"><a href="#start_page"><button class="boxed-btn"><strong>&#8593;</strong></button></a></div>
+                <div class="col"></div>
+            </div>
+                </div>
+            </center>
+            </div>
+            <!-- welcome_clicnic_area_end -->
+            
+            
+            <!-- Emergency_contact end -->
+            <!-- footer start -->
+            <script>
+                function myFunction(str){
+                    if (str == 'line')
+                    location.replace("{{ url_for('adminPageNew_line') }}")
+                    else if (str == 'bar')
+                        location.replace("{{ url_for('admin') }}")
+                    else if (str == 'pie')
+                        location.replace("{{ url_for('adminPageNew_pie') }}")
+                }
+            
+            
+            
+            // Districts along with their latitude and longitude
+            var districts = ['Mumbai', 'Mulund', 'Goregaon', 'Thane', 'Dadar', 'NAGPUR', 'AURANGABAD', 'BULDANA', 'AKOLA', 'LATUR']
+            var latitude = [19.076090, 19.174673, 19.154493, 19.218330, 19.019554, 21.146633, 19.901054, 20.536846, 20.707228, 18.407957] 
+            var longitude = [72.877426, 72.943108, 72.874664, 72.978088, 72.843733, 79.088860, 75.352478, 76.180870, 77.002960, 76.576767]
+            
+            // Initialise the Map to point to Maharashtra by default.
+            
+            function initMap(){
+            // Map options
+            var options ={
+              zoom:11,
+              
+              center:{lat:19.117712, lng:72.882952}		
+            }
+            
+            // New Map
+            var map = new google.maps.Map(document.getElementById('map'), options);	
+            
+            // Add Markers to the Map
+            // var i;
+            // for (i = 1; i <= latitude.length; i++){
+            // 	var marker = new google.maps.Marker({
+            // 		position:{lat:latitude[i-1], lng:longitude[i-1]},
+            // 		map:map,
+            // 		title: districts[i-1],
+            // 		icon:"/static/icons/"+i+".png"
+            // 	});	
+            // }
+            var marker = new google.maps.Marker({
+                  position:{lat:19.076090, lng:72.877426},
+                  map:map,
+                  title: districts[0],
+                  icon:"/static/icons/moreThan400.png"
+            });	
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+                  position:{lat:19.174673, lng:72.943108},
+                  map:map,
+                  title: districts[1],
+                  icon:"/static/icons/0to100.png"
+            });	
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+                  position:{lat:19.154493, lng:72.874664},
+                  map:map,
+                  title: districts[2],
+                  icon:"/static/icons/100to200.png"
+            });
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+                  position:{lat:19.218330, lng:72.978088},
+                  map:map,
+                  title: districts[3],
+                  icon:"/static/icons/200to300.png"
+            });
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+                  position:{lat:19.019554, lng:72.843733},
+                  map:map,
+                  title: districts[4],
+                  icon:"/static/icons/300to400.png"
+            });	
+            marker.setOptions({'opacity': 0.5});
+            }
+            </script>
+            
+            
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi59lrA5-ETGIyZ8U5oAap0yN_dxQsR7g&callback=initMap"
+            type="text/javascript">
+            </script>
+                
+                <!-- <script>
+            
+                    // Districts along with their latitude and longitude
+                    var districts = ['Mumbai', 'Mulund', 'Goregaon', 'Thane', 'Dadar', 'NAGPUR', 'AURANGABAD', 'BULDANA', 'AKOLA', 'LATUR']
+                    var latitude = [19.076090, 19.174673, 19.154493, 19.218330, 19.019554, 21.146633, 19.901054, 20.536846, 20.707228, 18.407957] 
+                    var longitude = [72.877426, 72.943108, 72.874664, 72.978088, 72.843733, 79.088860, 75.352478, 76.180870, 77.002960, 76.576767]
+            
+                    // Initialise the Map to point to Maharashtra by default.
+                    
+                    function initMap(){
+                        // Map options
+                        var options ={
+                            zoom:11,
+                            
+                            center:{lat:19.117712, lng:72.882952}		
+                        }
+            
+                        // New Map
+                        var map = new google.maps.Map(document.getElementById('map'), options);	
+            
+                        // Add Markers to the Map
+                        // var i;
+                        // for (i = 1; i <= latitude.length; i++){
+                        // 	var marker = new google.maps.Marker({
+                        // 		position:{lat:latitude[i-1], lng:longitude[i-1]},
+                        // 		map:map,
+                        // 		title: districts[i-1],
+                        // 		icon:"/static/icons/"+i+".png"
+                        // 	});	
+                        // }
+                        var marker = new google.maps.Marker({
+                                position:{lat:19.076090, lng:72.877426},
+                                map:map,
+                                title: districts[0],
+                                icon:"/static/icons/moreThan400.png"
+                        });	
+                        marker.setOptions({'opacity': 0.5});
+                        var marker = new google.maps.Marker({
+                                position:{lat:19.174673, lng:72.943108},
+                                map:map,
+                                title: districts[1],
+                                icon:"/static/icons/0to100.png"
+                        });	
+                        marker.setOptions({'opacity': 0.5});
+                        var marker = new google.maps.Marker({
+                                position:{lat:19.154493, lng:72.874664},
+                                map:map,
+                                title: districts[2],
+                                icon:"/static/icons/100to200.png"
+                        });
+                        marker.setOptions({'opacity': 0.5});
+                        var marker = new google.maps.Marker({
+                                position:{lat:19.218330, lng:72.978088},
+                                map:map,
+                                title: districts[3],
+                                icon:"/static/icons/200to300.png"
+                        });
+                        marker.setOptions({'opacity': 0.5});
+                        var marker = new google.maps.Marker({
+                                position:{lat:19.019554, lng:72.843733},
+                                map:map,
+                                title: districts[4],
+                                icon:"/static/icons/300to400.png"
+                        });	
+                  marker.setOptions({'opacity': 0.5});
+                    }
+                </script> -->
+            
+                
+                <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi59lrA5-ETGIyZ8U5oAap0yN_dxQsR7g&callback=initMap"
+                type="text/javascript">
+                </script> -->
+            
+            
+<!-- welcome_clicnic_area_end -->
+
+
+    
+    
+    <!-- <script>
+
+		// Districts along with their latitude and longitude
+		var districts = ['Mumbai', 'Mulund', 'Goregaon', 'Thane', 'Dadar', 'NAGPUR', 'AURANGABAD', 'BULDANA', 'AKOLA', 'LATUR']
+		var latitude = [19.076090, 19.174673, 19.154493, 19.218330, 19.019554, 21.146633, 19.901054, 20.536846, 20.707228, 18.407957] 
+		var longitude = [72.877426, 72.943108, 72.874664, 72.978088, 72.843733, 79.088860, 75.352478, 76.180870, 77.002960, 76.576767]
+
+        // Initialise the Map to point to Maharashtra by default.
+        
+		function initMap(){
+			// Map options
+			var options ={
+                zoom:11,
+                
+				center:{lat:19.117712, lng:72.882952}		
+			}
+
+			// New Map
+			var map = new google.maps.Map(document.getElementById('map'), options);	
+
+			// Add Markers to the Map
+			// var i;
+			// for (i = 1; i <= latitude.length; i++){
+			// 	var marker = new google.maps.Marker({
+			// 		position:{lat:latitude[i-1], lng:longitude[i-1]},
+			// 		map:map,
+			// 		title: districts[i-1],
+			// 		icon:"/static/icons/"+i+".png"
+			// 	});	
+            // }
+            var marker = new google.maps.Marker({
+					position:{lat:19.076090, lng:72.877426},
+					map:map,
+					title: districts[0],
+					icon:"/static/icons/moreThan400.png"
+            });	
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+					position:{lat:19.174673, lng:72.943108},
+					map:map,
+					title: districts[1],
+					icon:"/static/icons/0to100.png"
+            });	
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+					position:{lat:19.154493, lng:72.874664},
+					map:map,
+					title: districts[2],
+					icon:"/static/icons/100to200.png"
+            });
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+					position:{lat:19.218330, lng:72.978088},
+					map:map,
+					title: districts[3],
+					icon:"/static/icons/200to300.png"
+            });
+            marker.setOptions({'opacity': 0.5});
+            var marker = new google.maps.Marker({
+					position:{lat:19.019554, lng:72.843733},
+					map:map,
+					title: districts[4],
+					icon:"/static/icons/300to400.png"
+			});	
+      marker.setOptions({'opacity': 0.5});
+		}
+	</script> -->
+
+	
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDi59lrA5-ETGIyZ8U5oAap0yN_dxQsR7g&callback=initMap"
+	type="text/javascript">
+    </script> -->
+    
+
+
+   
+{% endblock %}

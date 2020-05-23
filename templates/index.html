@@ -1,0 +1,246 @@
+{% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+{% endblock %}
+{% block title %}
+
+    <!-- slider_area_start -->
+
+    <!-- slider_area_end -->
+
+    <!-- welcome_clicnic_area_start -->
+    <div class="welcome_clicnic_area" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <img class = "myImg" src="{{url_for('static',filename='plots/1.png')}}" alt="">
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <table class="myTablee">
+                            <tr class="myTRR">
+                              <td class="myTDD">0 - 100</td>
+                              <td class="myTDD" style="background-color: #03aedb;"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">100 - 200</td>
+                              <td class="myTDD" style="background-color: #0bd17d"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">200 - 300</td>
+                              <td class="myTDD" style="background-color: #12f223"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">300 - 400</td>
+                              <td class="myTDD" style="background-color: #4cc300"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">400 - 500</td>
+                              <td class="myTDD" style="background-color: #9f6900"></td>
+                            </tr>
+                            <tr class="myTRR">
+                                <td class="myTDD"> > 500</td>
+                                <td class="myTDD" style="background-color: #ea1700"></td>
+                              </tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr width="850px">
+    <div class="welcome_clicnic_area" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <img class = "myImg" src="{{url_for('static',filename='plots/2p.png')}}" alt="">
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        <table class="myTablee">
+                            <tr class="myTRR">
+                              <td class="myTDD">0 - 100</td>
+                              <td class="myTDD" style="background-color: #03aedb;"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">100 - 200</td>
+                              <td class="myTDD" style="background-color: #0bd17d"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">200 - 300</td>
+                              <td class="myTDD" style="background-color: #12f223"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">300 - 400</td>
+                              <td class="myTDD" style="background-color: #4cc300"></td>
+                            </tr>
+                            <tr class="myTRR">
+                              <td class="myTDD">400 - 500</td>
+                              <td class="myTDD" style="background-color: #9f6900"></td>
+                            </tr>
+                            <tr class="myTRR">
+                                <td class="myTDD"> > 500</td>
+                                <td class="myTDD" style="background-color: #ea1700"></td>
+                              </tr>
+                        </table>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr width="850px">
+    <div class="welcome_clicnic_area" style="padding-bottom: 0px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <img class = "myImg" src="{{url_for('static',filename='plots/casesindia.png')}}" alt="">
+                </div>
+                <div class="col-md-4" style="padding-bottom: 90px; font-family: 'Calibri';">
+                    <div class="text-dark h1" role="alert">
+                      <center style="font-family: 'Roboto';"><span style="color: #b739fa;">Cases</span> in India</center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr width="850px">
+    <div class="welcome_clicnic_area" style="padding-bottom: 0px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <img class = "myImg" src="{{url_for('static',filename='plots/deathindia.png')}}" alt="">
+                </div>
+                <div class="col-md-4" style="padding-bottom: 90px; font-family: 'Calibri';">
+                    <div class="text-dark h1" role="alert">
+                      <center style="font-family: 'Roboto';"><span style="color: #db3630;">Deaths</span> in India</center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr width="850px">
+    <div class="welcome_clicnic_area" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col align-items-center">
+                    <div class="card" style="box-shadow: 10px 10px aliceblue;">
+                        <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Updates</h3>
+                        <div class="card-body">
+                          <h6 class="card-subtitle mb-2 text-muted" >
+                            <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;" id="demo">
+                                
+                            </font>
+                          </h6>
+                          <ul>
+                              <li class="myIndexLI">
+                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                              </li>
+                              <li class="myIndexLI">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                            </li>
+                            <li class="myIndexLI">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                            </li>
+                          </ul>
+                          
+                        </div>
+                    </div>
+                    <!-- <center><h2>Latest Updates</h2></center><br>
+                    <ul>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                    </ul> -->
+                </div>
+                <div class="col">
+                    <div class="card" style="box-shadow: 10px 10px aliceblue;">
+                        <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Guidelines</h3>
+                        <div class="card-body">
+                          <h6 class="card-subtitle mb-2 text-muted">
+                            <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">
+                                <br>
+                            </font>
+                          </h6>
+                          <ul>
+                              <li class="myIndexLI">
+                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                              </li>
+                              <li class="myIndexLI">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                            </li>
+                            <li class="myIndexLI">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                            </li>
+                          </ul>
+                          
+                        </div>
+                    </div>
+
+                    <!-- <center><h2>Guidelines</h2></center><br>
+                    <ul>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                    </ul> -->
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="welcome_clicnic_area" style="padding-top: 0px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">We Stand With Our Yodhas Fighting On The Frontlines</h5></center>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- welcome_clicnic_area_end -->
+
+    <!-- depertment_area_start  -->
+
+    <!-- depertment_area_end  -->
+
+    <!-- expert_doctors_area_start -->
+
+    <!-- expert_doctors_area_end -->
+
+
+
+    <!-- quality_area_start  -->
+
+    <!-- quality_areaend  -->
+
+    <!-- Emergency_contact start -->
+
+    <!-- Emergency_contact end -->
+    <!-- footer start -->
+
+<script>
+
+    var month = new Array();
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
+    var d = new Date();
+    var n = month[d.getMonth()];
+    var date = d.getDate();
+    date = date.toString();
+    document.getElementById("demo").innerHTML = date +" "+ n;
+
+</script>
+{% endblock %}
