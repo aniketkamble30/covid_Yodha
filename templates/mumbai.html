@@ -3,82 +3,88 @@
 {% block title %}
 <div class="book_apointment_area">
     <div class="container">
-            <div class="row justify-content-end">
-                <h1>Morning</h1>
-                <ol> 
-				<!-- For loop logic of jinja template -->
-			{% for i in morning %}
-  		
-			<h6>{{i}}</h6>
-			<!-- {% if loop.index%4==0 %}
+		<center><h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Available Volunteers</h1></center>
+		<br><br>
+		<center><h2 style="font-family:Roboto; font-weight: 399;">Morning Shift - 7 AM to 12 PM </h2></center>
+		<hr width="600px">
+		<br>
+		<div class="row justify-content-end">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover table-light text-center table-bordered" style="font-family: roboto;">
+						<thead class="thead-dark">
+						  <tr>
+							<th scope="col">NAME</th>
+							<th scope="col">CONTACT</th>
+							<th scope="col">EMAIL</th>
+						  </tr>
+						</thead>
+						<tbody>
+							{% for i in morning %}
+						  <tr>
+							<td>{{ i['username'] }}</td>
+							<td>{{ i['phone'] }}</td>
+							<td>{{ i['email'] }}</td>
+						  </tr>
+						  {% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<br>
-				
-			{% endif %} -->
-
-			{% endfor %}
-
-				
-				
-				 
-            </div>
-
-  
-
-             
-            
-    </div>
-</div>
-
-<div class="book_apointment_area">
-    <div class="container">
-            <div class="row justify-content-end">
-                <h1>Afternoon</h1>
-                <ol> 
-				<!-- For loop logic of jinja template -->
-			{% for i in afternoon %}
-  		
-			<h6>{{i}}</h6>
-			<!-- {% if loop.index%4==0 %}
+		<center><h2 style="font-family:Roboto; font-weight: 399;">Afternoon Shift - 12 PM to 6 PM</h2></center>
+		<hr width="600px">
+		<br>	
+		<div class="row justify-content-end">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover table-light text-center table-bordered" style="font-family: Roboto;">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">NAME</th>
+								<th scope="col">CONTACT</th>
+								<th scope="col">EMAIL</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for i in afternoon %}
+							<tr>
+								<td>{{ i['username'] }}</td>
+								<td>{{ i['phone'] }}</td>
+								<td>{{ i['email'] }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<br>
-				
-			{% endif %} -->
-
-			{% endfor %}
-
-				
-				
-				 
-            </div>
-
-  
-
-             
-            
-    </div>
-</div>
-<div class="book_apointment_area">
-    <div class="container">
-            <div class="row justify-content-end">
-                <h1>Evening</h1>
-                <ol> 
-				<!-- For loop logic of jinja template -->
-			{% for i in evening %}
-  		
-			<h6>{{i}}</h6>
-			<!-- {% if loop.index%4==0 %}
-			<br>
-				
-			{% endif %} -->
-
-			{% endfor %}
-
+				<center><h2 style="font-family:Roboto; font-weight: 399;">Evening Shift - 6 PM to 12 AM</h2></center>
+				<hr width="600px">
+				<br>
+				<div class="row justify-content-end">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover table-light text-center table-bordered" style="font-family: roboto;">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">NAME</th>
+								<th scope="col">CONTACT</th>
+								<th scope="col">EMAIL</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for i in evening %}
+							<tr>
+								<td>{{ i['username'] }}</td>
+								<td>{{ i['phone'] }}</td>
+								<td>{{ i['email'] }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
 				
 				
-				 
-            </div>
-
-  
-
+				
              
             
     </div>

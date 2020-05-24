@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.secret_key = "qazsedcft"
 SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:@localhost/covid"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 '''
@@ -150,6 +151,10 @@ def logout():
 
 def register():
 
+    if 'user' in session:
+        return redirect(url_for('login'))
+    if 'admin' in session:
+        return redirect(url_for('admin'))
 
     addr=locate()
 
@@ -228,79 +233,87 @@ def adminPageNew_pie():
 
 @app.route('/mumbai')
 def mumbai():
-    query1 = volunteerlist.query.filter_by(choice1 = 'Mumbai').all()
-    db.session.commit()
-    print(query1)
-    l1 = [i for i in query1]
-    q = len(l1) 
-    if q<2:
-        query2 = volunteerlist.query.filter_by(choice2 = 'Mumbai').limit(2-q).all()
-        l2 = [i for i in query2]
-        for i in l2:
-            l1.append(i)
+    if 'admin' in session:
+        query1 = volunteerlist.query.filter_by(choice1 = 'mumbai', morning = '1').all()
+        query2 = volunteerlist.query.filter_by(choice1 = 'mumbai', afternoon = '1').all()
+        query3 = volunteerlist.query.filter_by(choice1 = 'mumbai', evening = '1').all()
 
-    if len(l1) < 2:
-        query3 = volunteerlist.query.filter_by(choice3 = 'Mumbai').limit(2-len(l1)).all()
-        l3 = [i for i in query3]
-        for i in l3:
-            l1.append(i)
+        return render_template('mumbai.html', morning = query1, afternoon = query2, evening = query3)
+
+    '''
+    # db.session.commit()
+    # print(query1)
+    # l1 = [i for i in query1]
+    # q = len(l1) 
+    # if q<2:
+    #     query2 = volunteerlist.query.filter_by(choice2 = 'Mumbai').limit(2-q).all()
+    #     l2 = [i for i in query2]
+    #     for i in l2:
+    #         l1.append(i)
+
+    # if len(l1) < 2:
+    #     query3 = volunteerlist.query.filter_by(choice3 = 'Mumbai').limit(2-len(l1)).all()
+    #     l3 = [i for i in query3]
+    #     for i in l3:
+    #         l1.append(i)
             
-    avg = len(l1) / 3
-    out = []
-    last = 0.0
-    while last < len(l1):
-        out.append(l1[int(last):int(last + avg)])
-        last += avg
+    # avg = len(l1) / 3
+    # out = []
+    # last = 0.0
+    # while last < len(l1):
+    #     out.append(l1[int(last):int(last + avg)])
+    #     last += avg
 
-    morning = out[0] #slot1
-    afternoon = out[1] #slot2
-    evening = out[2] #slot3 
-    # print(json.dumps)
-    # print(morning)
-    # print(afternoon)
-    # print(evening)
-    # print("s")
-    res1=res2=res3=[]
-    for i in morning:
-        ph=str(i)
-        ph=(ph[15:-1] )
-        userdetail=volunteerlist.query.filter_by(phone=ph).first()
-        result=userdetail.__dict__
-        username=(result['username'])
-        phone=(result['phone'])
-        email=(result['email'])
+    # morning = out[0] #slot1
+    # afternoon = out[1] #slot2
+    # evening = out[2] #slot3 
+    # # print(json.dumps)
+    # # print(morning)
+    # # print(afternoon)
+    # # print(evening)
+    # # print("s")
+    # res1=res2=res3=[]
+    # for i in morning:
+    #     ph=str(i)
+    #     ph=(ph[15:-1] )
+    #     userdetail=volunteerlist.query.filter_by(phone=ph).first()
+    #     result=userdetail.__dict__
+    #     username=(result['username'])
+    #     phone=(result['phone'])
+    #     email=(result['email'])
        
-        res1.append((username+" "+phone+" "+email))
-        print(res1)
+    #     res1.append((username+" "+phone+" "+email))
+    #     print(res1)
 
-    for i in afternoon:
-        ph=str(i)
-        ph=(ph[15:-1] )
-        userdetail=volunteerlist.query.filter_by(phone=ph).first()
-        result=userdetail.__dict__
-        username=(result['username'])
-        phone=(result['phone'])
-        email=(result['email'])
+    # for i in afternoon:
+    #     ph=str(i)
+    #     ph=(ph[15:-1] )
+    #     userdetail=volunteerlist.query.filter_by(phone=ph).first()
+    #     result=userdetail.__dict__
+    #     username=(result['username'])
+    #     phone=(result['phone'])
+    #     email=(result['email'])
      
        
-        res2.append((username+" "+phone+" "+email))
+    #     res2.append((username+" "+phone+" "+email))
         
-        print(res2)
+    #     print(res2)
 
-    for i in evening:
-        ph=str(i)
-        ph=(ph[15:-1] )
-        userdetail=volunteerlist.query.filter_by(phone=ph).first()
-        result=userdetail.__dict__
-        username=(result['username'])
-        phone=(result['phone'])
-        email=(result['email'])
+    # for i in evening:
+    #     ph=str(i)
+    #     ph=(ph[15:-1] )
+    #     userdetail=volunteerlist.query.filter_by(phone=ph).first()
+    #     result=userdetail.__dict__
+    #     username=(result['username'])
+    #     phone=(result['phone'])
+    #     email=(result['email'])
        
-        print(res3)
+    #     print(res3)
 
-        res3.append((username+" "+phone+" "+email))
+    #     res3.append((username+" "+phone+" "+email))
 
-    return render_template("mumbai.html",morning=res1[:5],afternoon=res2[5:],evening=res3[4:])
+    # return render_template("mumbai.html",morning=res1[:5],afternoon=res2[5:],evening=res3[4:])
+    '''
 
 
 

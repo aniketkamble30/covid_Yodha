@@ -15,7 +15,7 @@
 				<div class="responsive">
 					<form method="POST" action="{{ url_for('addList') }}">
 						<div class="container">
-							<h3 style="font-family: Calibri; color: 032f69; font-weight: bold;">Hello {{ user }}, </h3>			 
+							<h2 style="font-family: Roboto; color: 032f69; font-weight: bold;">Hello {{ user }}, </h2>			 
 							<div class="jumbotron jumbotron-fluid">
 			
 								<div class="container">
@@ -65,13 +65,20 @@
 												<!-- <h5 class="card-title"></h5> -->
 			
 												<p class="card-text" style="font-family: 'calibri'; font-weight: 500; color: black;">
-			
-													Authorities Working at your area:
-			
-													<br><br>
-			
-													Police assisstance:
-			
+													<ol>
+														<li style="list-style: square outside none;">
+															<h6>Social Distancing</h6>
+															Maintain a distance of atleast 6 feet from other people.
+															Gathering in groups in this current situation is strongly condemned.
+															Avoid crowded places and mass gatherings such as public transport, workplaces, educational institutions, religious institutions etc.
+															Any physical contact such as shaking hands, hugging etc should be avoided.
+														</li>
+														<li style="list-style: square outside none;">
+															Self-isolate by staying at home if you begin to feel unwell, even
+															with mild symptoms such as headache, low grade fever (37.3 C
+															or above) and slight runny nose, until you recover.
+														</li>
+													</ol>
 												</p>
 			
 												<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
@@ -94,18 +101,21 @@
 			
 											<h4 class="card-header"><b style="color: #032f69;  font-family: 'Roboto';">Guidelines</b></h4>
 			
-											<div class="card-body">
+											<div class=" card-body scroll">
 			
 												<!-- <h5 class="card-title"></h5> -->
 			
-												<p class="card-text" style="font-family: 'calibri'; font-weight: 500; color: black;">
-			
-													Kuch toh guidelines
-			
-													<br>
-			
-													<br><br>
-			
+												<p class="card-text " style="font-family: 'calibri'; font-weight: 500; color: black;">
+													<ol >
+														<li style="list-style: square outside none;">
+															Wash hands thoroughly and regularly, taking atleast 20 seconds for each wash.
+															Use of any disinfecting soap and water is recommended for washing of hands. It is also important to dry hands completely, once washed.
+														</li>
+														<li style="list-style: square outside none;">
+															Medical masks (like surgical masks and N95 respirators) should be strictly reserved for health care workers and COVID-19 positive patients. The COVID-negative, asymptomatic populace should wear cloth masks /homemade masks.
+															It is recommended to always wear a mask when stepping outside your residence.
+														</li>
+													</ol>			
 												</p>
 			
 												<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
