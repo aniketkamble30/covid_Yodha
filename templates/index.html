@@ -10,6 +10,7 @@
     <!-- slider_area_end -->
 
     <!-- welcome_clicnic_area_start -->
+    <!--
     <div class="welcome_clicnic_area" >
         <div class="container">
             <div class="row align-items-center">
@@ -51,10 +52,10 @@
     </div>
     <hr width="850px">
     <div class="welcome_clicnic_area" >
-        <div class="container">
+       <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <img class = "myImg" src="{{url_for('static',filename='plots/2p.png')}}" alt="">
+                     <img class = "myImg" src="{{url_for('static',filename='plots/2p.png')}}" alt="">
                 </div>
                 <div class="col-md-4">
                     <p>
@@ -88,42 +89,143 @@
                 </div>
             </div>
         </div>
+       
     </div>
+-->
+
     <hr width="850px">
-    <div class="welcome_clicnic_area" style="padding-bottom: 0px;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <img class = "myImg" src="{{url_for('static',filename='plots/casesindia.png')}}" alt="">
-                </div>
-                <div class="col-md-4" style="padding-bottom: 90px; font-family: 'Calibri';">
-                    <div class="text-dark h1" role="alert">
-                      <center style="font-family: 'Roboto';"><span style="color: #b739fa;">Cases</span> in India</center>
+    <div class="expert_doctors_area p-0">
+        <div class="container" id="slideshowContainer">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-9">
+                    <div class="single_expert">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="expert_thumb" id="slideshowImages">
+                            <img name="slide">
+                        </div>
+                        <div class="experts_name text-center">
+                            <h3>State-wise Density of COVID-19 Positive Patients </h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr width="850px">
-    <div class="welcome_clicnic_area" style="padding-bottom: 0px;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <img class = "myImg" src="{{url_for('static',filename='plots/deathindia.png')}}" alt="">
-                </div>
-                <div class="col-md-4" style="padding-bottom: 90px; font-family: 'Calibri';">
-                    <div class="text-dark h1" role="alert">
-                      <center style="font-family: 'Roboto';"><span style="color: #db3630;">Deaths</span> in India</center>
+
+
+
+            <!--
+            <div class="row justify-content-center ">
+                <div class="col-lg-6">
+                    <div class="section_title mb-55 text-center">
+                        <h3></h3>
                     </div>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-9">
+                    <div class="single_expert">
+                        <div class="expert_thumb">
+                            <img class = "myImg" src="static/img/plots/{{folder}}/Andaman and Nicobar.png" alt="">
+                        </div>
+                        <div class="experts_name text-center">
+                            <h3>Andaman & Nicobar Islands </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        -->
+<br>
+<br>
+<br>
+     
+<table>
+<tr>
+<td>
+<div class="welcome_clicnic_area" style="padding-top: 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN MAHARASHTRA</h3></center>
+                <br>
+                <ul>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Mumbai: {{pm}}</h5>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Mumbai: {{gm}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Pune: {{pp}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Pune: {{gp}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Thane: {{pt}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Thane: {{gt}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Nagpur: {{pnag}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Nagpur: {{gnag}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Nashik: {{pnas}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Nashik: {{gnas}}</h5></center>
+                    </li>
+            </ul>
+            </div>
         </div>
     </div>
+</div>
+</td>
+<td >
+<div class="welcome_clicnic_area" style="padding-top: 0px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+                <center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN INDIA</h3></center>
+                <br>
+                <ul>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted: {{pred_c}}</h5>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of deaths predicted: {{pred_d}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of recoveries predicted: {{pred_r}}</h5></center>
+                    </li>
+                    <li class="myIndexLI">
+                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted: {{growth}}</h5></center>
+                    </li>
+            </ul>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+</div>
+</td>
+</tr>
+</table>
+    
     <hr width="850px">
     <div class="welcome_clicnic_area" >
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col align-items-center">
+            <div class="row align-items-top">
+                <div class="col align-items-top">
                     <div class="card" style="box-shadow: 10px 10px aliceblue;">
                         <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Updates</h3>
                         <div class="card-body">
@@ -133,26 +235,41 @@
                             </font>
                           </h6>
                           <ul>
-                              <li class="myIndexLI">
-                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                              <li class="myIndexLI" style="color: blue;">
+                                Confirmed Cases: {{tot}}
                               </li>
-                              <li class="myIndexLI">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
-                            </li>
-                            <li class="myIndexLI">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
-                            </li>
+                              <li class="myIndexLI" style="color: crimson;">
+                                Confirmed Deaths:  {{dea}}
+                              </li>
+                              <li class="myIndexLI" style="color: lime;">
+                                Recovered Cases: {{rec}}
+                              </li>
+                              <li class="myIndexLI" style="color: khaki;">
+                                Active Cases: {{act}}
+                              </li>
+                              <li class="myIndexLI" style="color: blue;">
+                                New Cases: {{newcases}}
+                              </li>
+                              <li class="myIndexLI" style="color: lime;">
+                                New Recoveries: {{newrec}}
+                              </li>
+                              <li class="myIndexLI" style="color: crimson;">
+                                New Deaths: {{newdea}}
+                              </li>
+                              
                           </ul>
                           
                         </div>
                     </div>
-                    <!-- <center><h2>Latest Updates</h2></center><br>
+            <!--
+                     <center><h2>Latest Updates</h2></center><br>
                     <ul>
                         <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
                         <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
                         <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
-                    </ul> -->
+                    </ul>
                 </div>
+            -->
                 <div class="col">
                     <div class="card" style="box-shadow: 10px 10px aliceblue;">
                         <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Guidelines</h3>
@@ -163,15 +280,68 @@
                             </font>
                           </h6>
                           <ul>
-                              <li class="myIndexLI">
-                                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
+                              <li>
+                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Washing Hands</h3>
+                                <ul>
+                                <li class="myIndexLI">
+                                    Wash hands thoroughly and regularly, taking atleast 20 seconds for each wash.
+                                </li>
+                                <li class="myIndexLI">
+                                    Use of any disinfecting soap and water is recommended for washing of hands. It is also important to dry hands completely, once washed.
+                                </li>
+                                <li class="myIndexLI">
+                                    Use an alcohol-based hand sanitizer if soap and water and not immediately accessible.
+                                </li>
+                                <li class="myIndexLI">
+                                    The step-by-step method to wash hands is available<a href="https://www.nhs.uk/live-well/healthy-body/best-way-to-wash-your-hands/"> here</a>
+                                </li>
+                                </ul>
                               </li>
-                              <li class="myIndexLI">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
-                            </li>
-                            <li class="myIndexLI">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque consequatur mollitia cupiditate praesentium sed vero unde dignissimos eaque, omnis, doloribus eum deleniti magnam libero soluta, quo dolorum dicta voluptatum amet!
-                            </li>
+                              <br>
+                              <li>
+                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Mask Usage</h3>
+                                <ul>
+                                <li class="myIndexLI">
+                                    Medical masks (like surgical masks and N95 respirators) should be strictly reserved for health care workers and COVID-19 positive patients. The COVID-negative, asymptomatic populace should wear cloth masks /homemade masks.
+                                </li>
+                                <li class="myIndexLI">
+                                    It is recommended to always wear a mask when stepping outside your residence.
+                                </li>
+                                <li class="myIndexLI">
+                                    Ensure that the mask covers the nose and mouth completely at all times. Check for gaps between face and mask.
+                                </li>
+                                <li class="myIndexLI">
+                                    Always wear a mask with clean hands. Avoid touching the mask while using it.
+                                </li>
+                                <li class="myIndexLI">
+                                    Medical masks must be disposed after use while non medical measks must be thoroughly washed after every use.
+                                </li>
+                                <li class="myIndexLI">
+                                    Masks are not be mistaken as a substitute for following other hygiene practices like hand washing and social distancing.
+                                 </li>
+                                <li class="myIndexLI">
+                                    The proper procedure to wear masks can be found <a href="https://www.youtube.com/watch?v=qilLP_UnaHg">here</a>.
+                                </li>
+                                </ul>
+                              </li>
+                              <br>
+                              <li>
+                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Social Distancing</h3>   
+                                <ul>
+                                    <li class="myIndexLI">
+                                        Maintain a distance of atleast 6 feet from other people.
+                                    </li>
+                                    <li class="myIndexLI">
+                                        Gathering in groups in this current situation is strongly condemned.
+                                    </li>
+                                    <li class="myIndexLI">
+                                        Avoid crowded places and mass gatherings such as public transport, workplaces, educational institutions, religious institutions etc.
+                                    </li>
+                                    <li class="myIndexLI">
+                                        Any physical contact such as shaking hands, hugging etc should be avoided.
+                                    </li>
+                                </ul> 
+                              </li>
                           </ul>
                           
                         </div>
@@ -187,9 +357,11 @@
               </div>
         </div>
     </div>
+
+
     <div class="welcome_clicnic_area" style="padding-top: 0px;">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row">
                 <div class="col-4"></div>
                 <div class="col-4">
                     <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">We Stand With Our Yodhas Fighting On The Frontlines</h5></center>
@@ -241,6 +413,71 @@
     var date = d.getDate();
     date = date.toString();
     document.getElementById("demo").innerHTML = date +" "+ n;
+
+    
+
+    var i=0;
+    var images=[];
+    var time=3000;
+
+    images[0]='static/img/plots/{{folder}}/india.png';
+    images[1]='static/img/plots/{{folder}}/Andaman and Nicobar.png';
+    images[2]='static/img/plots/{{folder}}/Andhra Pradesh.png';
+    images[3]='static/img/plots/{{folder}}/Arunachal Pradesh.png';
+    images[4]='static/img/plots/{{folder}}/Assam.png';
+    images[5]='static/img/plots/{{folder}}/Assam.png';
+    images[6]='static/img/plots/{{folder}}/Chandigarh.png';
+    images[7]='static/img/plots/{{folder}}/Chhattisgarh.png';
+    images[8]='static/img/plots/{{folder}}/Dadra and Nagar Haveli.png';
+    images[9]='static/img/plots/{{folder}}/Daman and Diu.png';
+    images[10]='static/img/plots/{{folder}}/Goa.png';
+    images[11]='static/img/plots/{{folder}}/Gujarat.png';
+    images[12]='static/img/plots/{{folder}}/Haryana.png';
+    images[13]='static/img/plots/{{folder}}/Himachal Pradesh.png';
+    images[14]='static/img/plots/{{folder}}/Jammu and Kashmir.png';
+    images[15]='static/img/plots/{{folder}}Jharkhand.png';
+    images[16]='static/img/plots/{{folder}}/Karnataka.png';
+    images[17]='static/img/plots/{{folder}}/Kerala.png';
+    images[18]='static/img/plots/{{folder}}/Lakshadweep.png';
+    images[19]='static/img/plots/{{folder}}/MadhyaPradesh.png';
+    images[20]='static/img/plots/{{folder}}/Maharashtra.png';
+    images[21]='static/img/plots/{{folder}}/Manipur.png';
+    images[22]='static/img/plots/{{folder}}/Meghalaya.png';
+    images[23]='static/img/plots/{{folder}}/Mizoram.png';
+    images[24]='static/img/plots/{{folder}}/Nagaland.png';
+    images[25]='static/img/plots/{{folder}}/NCT of Delhi.png';
+    images[26]='static/img/plots/{{folder}}/Odisha.png';
+    images[27]='static/img/plots/{{folder}}/Puducherry.png';
+    images[28]='static/img/plots/{{folder}}/Punjab.png';
+    images[29]='static/img/plots/{{folder}}/Rajasthan.png';
+    images[30]='static/img/plots/{{folder}}/Sikkim.png';
+    images[31]='static/img/plots/{{folder}}/Tamil Nadu.png';
+    images[32]='static/img/plots/{{folder}}/Tamil Nadu.png';
+    images[33]='static/img/plots/{{folder}}/Telangana.png';
+    images[34]='static/img/plots/{{folder}}/Tripura.png';
+    images[35]='static/img/plots/{{folder}}/Uttar Pradesh.png';
+    images[36]='static/img/plots/{{folder}}/West Bengal.png';
+
+
+    function changeImg(){
+        document.slide.src=images[i];
+
+        if(i < images.length -1){
+            i++;
+        }
+        else{
+            i=0;
+        }
+        setTimeout("changeImg()", time);
+    }
+
+    window.onload=changeImg;
+
+
+
+
+
+
 
 </script>
 {% endblock %}

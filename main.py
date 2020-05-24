@@ -7,6 +7,10 @@ import pymysql
 from plots import dataindia
 from dist import district
 import math
+from india_stats import current_stats
+from plots_call import plot_day
+from india_pred import pred_list
+from ml_model import pred_maha
 
 app = Flask(__name__)
 app.secret_key = "qazsedcft"
@@ -105,13 +109,27 @@ class item(db.Model):
 
 @app.route("/")
 def home():
-    if "user" in session:
-        return render_template('index.html', user = 1)
-    return render_template('index.html', user = 1)
+    t, r,d, a, nc, nr, nd=current_stats()                                             
+    f=plot_day()
+    pc, pd, pr, gr=pred_list()
+    predictions, growth_rate=pred_maha()
+    
+    return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+
     
 @app.route("/index")
 def index():
-    return render_template('index.html')
+    t, r,d, a, nc, nr, nd=current_stats()                                             
+    f=plot_day()
+    pc, pd, pr, gr=pred_list()
+    predictions, growth_rate=pred_maha()
+    
+    return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+
 
 @app.route("/about")
 def about():
