@@ -14,3 +14,13 @@
     list-style: square outside none;
     padding-bottom: 10px;
 }
+
+#stuck{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+  padding: 50px;
+  font-size: 20px;
+  width: 20%;
+}

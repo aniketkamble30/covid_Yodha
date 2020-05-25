@@ -2,109 +2,87 @@
 {% block css %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 {% endblock %}
 {% block title %}
 
-    <!-- slider_area_start -->
-
-    <!-- slider_area_end -->
-
-    <!-- welcome_clicnic_area_start -->
-    <!--
-    <div class="welcome_clicnic_area" >
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                    <img class = "myImg" src="{{url_for('static',filename='plots/1.png')}}" alt="">
-                </div>
-                <div class="col-md-4">
-                    <p>
-                        <table class="myTablee">
-                            <tr class="myTRR">
-                              <td class="myTDD">0 - 100</td>
-                              <td class="myTDD" style="background-color: #03aedb;"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">100 - 200</td>
-                              <td class="myTDD" style="background-color: #0bd17d"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">200 - 300</td>
-                              <td class="myTDD" style="background-color: #12f223"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">300 - 400</td>
-                              <td class="myTDD" style="background-color: #4cc300"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">400 - 500</td>
-                              <td class="myTDD" style="background-color: #9f6900"></td>
-                            </tr>
-                            <tr class="myTRR">
-                                <td class="myTDD"> > 500</td>
-                                <td class="myTDD" style="background-color: #ea1700"></td>
-                              </tr>
-                        </table>
-                    </p>
-                </div>
-            </div>
+<div class="welcome_clicnic_area">
+    <div class="container">
+<div class="mainStick">
+    <div style=" float:right; position: -webkit-sticky;position: sticky;top: 0; z-index: 10; width: 25%; opacity: 0.9; margin-right: -180px;">
+        <div>
+            <h3 class=" text-center" style="font-family: 'Roboto Slab';">Updates</h3>
+            <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;" id="demo"></font>
+            <table class="table table-sm table-hover" >
+                <tbody>
+                  <tr class="text-primary" >
+                      <td>Confirmed Cases</td>
+                      <td>{{tot}}</td>
+                  </tr>
+                  <tr class="text-danger">
+                    <td >Confirmed Deaths</td>
+                    <td>{{dea}}</td>
+                </tr>
+                <tr class="text-success">
+                    <td>Recovered Cases</td>
+                    <td>{{rec}}</td>
+                </tr>
+                <tr class="text-warning">
+                    <td>Active Cases</td>
+                    <td>{{act}}</td>
+                </tr>
+                <tr style="color: blue;">
+                    <td>New Cases</td>
+                    <td>{{newcases}}</td>
+                </tr>
+                <tr style="color: green;">
+                    <td>New Recoveries</td>
+                    <td>{{newrec}}</td>
+                </tr>
+                <tr class="text-danger">
+                    <td>New Deaths</td>
+                    <td>{{newdea}}</td>
+                </tr>
+                </tbody>
+              </table>
+            <!-- <div class="">
+                <h6 class="card-subtitle mb-2 text-muted" >
+                        <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;" id="demo">
+                            
+                        </font>
+                    </h6>
+                    <ul>
+                          <li  style="color: blue;">
+                            Confirmed Cases: {{tot}}
+                          </li>
+                          <li  style="color: crimson;">
+                            Confirmed Deaths:  {{dea}}
+                          </li>
+                          <li  style="color: rgb(2, 151, 2);">
+                            Recovered Cases: {{rec}}
+                          </li>
+                          <li  style="color: rgb(156, 141, 3);">
+                            Active Cases: {{act}}
+                          </li>
+                          <li  style="color: blue;">
+                            New Cases: {{newcases}}
+                        </li>
+                        <li  style="color: rgb(2, 151, 2);;">
+                            New Recoveries: {{newrec}}
+                        </li>
+                        <li  style="color: crimson;">
+                            New Deaths: {{newdea}}
+                          </li>
+                          
+                        </ul> 
+                        
+                    </div>
+                -->
         </div>
     </div>
     <hr width="850px">
-    <div class="welcome_clicnic_area" >
-       <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
-                     <img class = "myImg" src="{{url_for('static',filename='plots/2p.png')}}" alt="">
-                </div>
-                <div class="col-md-4">
-                    <p>
-                        <table class="myTablee">
-                            <tr class="myTRR">
-                              <td class="myTDD">0 - 100</td>
-                              <td class="myTDD" style="background-color: #03aedb;"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">100 - 200</td>
-                              <td class="myTDD" style="background-color: #0bd17d"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">200 - 300</td>
-                              <td class="myTDD" style="background-color: #12f223"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">300 - 400</td>
-                              <td class="myTDD" style="background-color: #4cc300"></td>
-                            </tr>
-                            <tr class="myTRR">
-                              <td class="myTDD">400 - 500</td>
-                              <td class="myTDD" style="background-color: #9f6900"></td>
-                            </tr>
-                            <tr class="myTRR">
-                                <td class="myTDD"> > 500</td>
-                                <td class="myTDD" style="background-color: #ea1700"></td>
-                              </tr>
-                        </table>
-                    </p>
-                </div>
-            </div>
-        </div>
-       
-    </div>
--->
+    <div class="expert_doctors_area p-0">
 
-<hr width="850px">
-<div class="expert_doctors_area p-0">
-<div class="row justify-content-center ">
-    <div class="col-lg-6">
-        <div class="section_title mb-55 text-center">
-            <h3>
-                <br>
-                <br>
-            </h3>
-        </div>
-    </div>
-</div>
 <div class="row justify-content-center">
     <a href="#slideshowContainer"><button class="boxed-btn" style="margin-right: 10px;">State Wise Cases</button></a>
     <a href="#predict"><button class="boxed-btn" style="margin-right: 10px;">Predictions</button></a>
@@ -121,9 +99,8 @@
     </div>
 </div>
 </div>
-
-    <hr width="850px">
-    <div class="expert_doctors_area p-0">
+<hr width="850px">
+<div class="expert_doctors_area p-0">
         <div class="container" id="slideshowContainer">
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-9">
@@ -145,40 +122,89 @@
             </div>
         </div>
     </div>
-
-
-
-            <!--
-            <div class="row justify-content-center ">
-                <div class="col-lg-6">
-                    <div class="section_title mb-55 text-center">
-                        <h3></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-9">
-                    <div class="single_expert">
-                        <div class="expert_thumb">
-                            <img class = "myImg" src="static/img/plots/{{folder}}/Andaman and Nicobar.png" alt="">
-                        </div>
-                        <div class="experts_name text-center">
-                            <h3>Andaman & Nicobar Islands </h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        -->
+    <br>
 <br>
 <br>
-<br>
-     
-<table>
-<tr>
-<td>
+
+<!-- NOICE -->
 <div class="welcome_clicnic_area" style="padding-top: 0px;" id="predict">
     <div class="container">
-        <div class="row">
+        <div class="row align-items-center" style="display:flexbox;">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN MAHARASHTRA</h3></center>
+                <table class="table text-center table-hover table-borderless" style="font-family: 'Roboto';">
+                    <thead>
+                      <tr>
+                        <th scope="col">City</th>
+                        <th scope="col">No. Of New Cases Predicted</th>
+                        <th scope="col">Predicted Growth Rate</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-primary">
+                            <td>Mumbai</td>
+                            <td>{{pm}}</td>
+                            <td>{{gm}}</td>
+                        </tr>
+                        <tr class="text-primary">
+                        <td>Pune</td>
+                        <td>{{pp}}</td>
+                        <td>{{gp}}</td>
+                      </tr>
+                        <tr class="text-primary">
+                        <td>Thane</td>
+                        <td>{{pt}}</td>
+                        <td>{{gt}}</td>
+                      </tr>
+                        <tr class="text-primary">
+                        <td>Nagpur</td>
+                        <td>{{pnag}}</td>
+                        <td>{{gnag}}</td>
+                      </tr>
+                        <tr class="text-primary">
+                        <td>Nashik</td>
+                        <td>{{pnas}}</td>
+                        <td>{{gnas}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-5">
+                <center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN INDIA</h3></center>
+                <table class="table text-center table-hover table-borderless" style="font-family: 'Roboto';">
+                    <tbody>
+                      <tr class="text-primary">
+                        <td>No. of new cases predicted:</td>
+                        <td>{{pred_c}}</td>
+                      </tr>
+                      <tr class="text-danger">
+                        <td>No. of deaths predicted:</td>
+                        <td>{{pred_d}}</td>
+                      </tr>
+                      <tr class="text-success">
+                        <td>No. of recoveries predicted:</td>
+                        <td>{{pred_r}}</td>
+                      </tr>
+                      <tr class="text-info">
+                        <td>Growth Rate predicted:</td>
+                        <td>{{growth}}</td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </div>  
+</div>  
+<!-- NOICE -->
+
+<table>
+    <tr>
+        <td>
+            <div class="welcome_clicnic_area" style="padding-top: 0px;" id="predict">
+                <div class="container">                    
+                    <div class="row">
             <div class="col-6"></div>
             <div class="col-6">
                 <center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN MAHARASHTRA</h3></center>
@@ -186,9 +212,9 @@
                 <ul>
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Mumbai: {{pm}}</h5>
-                    </li>
-                    <li class="myIndexLI">
-                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Mumbai: {{gm}}</h5></center>
+                        </li>
+                        <li class="myIndexLI">
+                            <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Mumbai: {{gm}}</h5></center>
                     </li>
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted in Pune: {{pp}}</h5></center>
@@ -214,7 +240,7 @@
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted in Nashik: {{gnas}}</h5></center>
                     </li>
-            </ul>
+                </ul>
             </div>
         </div>
     </div>
@@ -231,9 +257,9 @@
                 <ul>
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of new cases predicted: {{pred_c}}</h5>
-                    </li>
-                    <li class="myIndexLI">
-                        <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of deaths predicted: {{pred_d}}</h5></center>
+                        </li>
+                        <li class="myIndexLI">
+                            <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of deaths predicted: {{pred_d}}</h5></center>
                     </li>
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Number of recoveries predicted: {{pred_r}}</h5></center>
@@ -241,7 +267,7 @@
                     <li class="myIndexLI">
                         <center><h5 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 300; color: darkblue;">Growth Rate predicted: {{growth}}</h5></center>
                     </li>
-            </ul>
+                </ul>
             </div>
             <div class="col-4"></div>
         </div>
@@ -251,19 +277,19 @@
 </tr>
 </table>
     
-    <hr width="850px">
-    <div class="welcome_clicnic_area" id="updates">
-            <div class="row align-items-top">
-                <div class="col align-items-top">
-                    <div class="card" style="box-shadow: 10px 10px aliceblue;">
-                        <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Updates</h3>
-                        <div class="card-body">
-                          <h6 class="card-subtitle mb-2 text-muted" >
+<hr width="850px">
+<div class="welcome_clicnic_area" id="updates">
+    <div class="row ">
+        <div class="col-2">
+            <!-- <div class="card" style="box-shadow: 10px 10px aliceblue;">
+                <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Updates</h3>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted" >
                             <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;" id="demo">
                                 
                             </font>
-                          </h6>
-                          <ul>
+                        </h6>
+                        <ul>
                               <li class="myIndexLI" style="color: blue;">
                                 Confirmed Cases: {{tot}}
                               </li>
@@ -278,43 +304,35 @@
                               </li>
                               <li class="myIndexLI" style="color: blue;">
                                 New Cases: {{newcases}}
-                              </li>
-                              <li class="myIndexLI" style="color: lime;">
+                            </li>
+                            <li class="myIndexLI" style="color: lime;">
                                 New Recoveries: {{newrec}}
-                              </li>
-                              <li class="myIndexLI" style="color: crimson;">
+                            </li>
+                            <li class="myIndexLI" style="color: crimson;">
                                 New Deaths: {{newdea}}
                               </li>
                               
-                          </ul>
-                          
+                            </ul>
+                            
                         </div>
-                    </div>
-            <!--
-                     <center><h2>Latest Updates</h2></center><br>
-                    <ul>
-                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
-                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
-                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
-                    </ul>
+            </div> -->
                 </div>
-            -->
-                <div class="col">
+                <div class="col-8">
                     <div class="card" style="box-shadow: 10px 10px aliceblue;">
                         <h3 class="card-header text-center " style="font-family: 'Roboto Slab';">Guidelines</h3>
                         <div class="card-body">
-                          <h6 class="card-subtitle mb-2 text-muted">
-                            <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">
-                                <br>
-                            </font>
-                          </h6>
-                          <ul>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                <font style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">
+                                    <br>
+                                </font>
+                            </h6>
+                            <ul>
                               <li>
-                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Washing Hands</h3>
-                                <ul>
-                                <li class="myIndexLI">
-                                    Wash hands thoroughly and regularly, taking atleast 20 seconds for each wash.
-                                </li>
+                                  <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Washing Hands</h3>
+                                  <ul>
+                                      <li class="myIndexLI">
+                                          Wash hands thoroughly and regularly, taking atleast 20 seconds for each wash.
+                                        </li>
                                 <li class="myIndexLI">
                                     Use of any disinfecting soap and water is recommended for washing of hands. It is also important to dry hands completely, once washed.
                                 </li>
@@ -324,13 +342,13 @@
                                 <li class="myIndexLI">
                                     The step-by-step method to wash hands is available<a href="https://www.nhs.uk/live-well/healthy-body/best-way-to-wash-your-hands/"> here</a>
                                 </li>
-                                </ul>
-                              </li>
-                              <br>
+                            </ul>
+                        </li>
+                        <br>
                               <li>
-                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Mask Usage</h3>
-                                <ul>
-                                <li class="myIndexLI">
+                                  <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Mask Usage</h3>
+                                  <ul>
+                                      <li class="myIndexLI">
                                     Medical masks (like surgical masks and N95 respirators) should be strictly reserved for health care workers and COVID-19 positive patients. The COVID-negative, asymptomatic populace should wear cloth masks /homemade masks.
                                 </li>
                                 <li class="myIndexLI">
@@ -347,15 +365,15 @@
                                 </li>
                                 <li class="myIndexLI">
                                     Masks are not be mistaken as a substitute for following other hygiene practices like hand washing and social distancing.
-                                 </li>
+                                </li>
                                 <li class="myIndexLI">
                                     The proper procedure to wear masks can be found <a href="https://www.youtube.com/watch?v=qilLP_UnaHg">here</a>.
                                 </li>
-                                </ul>
-                              </li>
-                              <br>
+                            </ul>
+                        </li>
+                        <br>
                               <li>
-                                <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Social Distancing</h3>   
+                                  <h3 style="color: rgb(3, 74, 207); font-size: large; font-weight: 500;">Social Distancing</h3>   
                                 <ul>
                                     <li class="myIndexLI">
                                         Maintain a distance of atleast 6 feet from other people.
@@ -370,24 +388,28 @@
                                         Any physical contact such as shaking hands, hugging etc should be avoided.
                                     </li>
                                 </ul> 
-                              </li>
+                            </li>
                           </ul>
                           
                         </div>
                     </div>
-
+                    
                     <!-- <center><h2>Guidelines</h2></center><br>
-                    <ul>
-                        <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
+                        <ul>
+                            <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
                         <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
                         <li class="myIndexLI">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores id impedit provident sapiente totam ullam, maiores at accusantium voluptas enim ipsum error ratione. Velit facere voluptatem repudiandae ipsum vero?</li>
                     </ul> -->
                 </div>
-              </div>
+            <div class="col-2"></div>
         </div>
     </div>
+</div>
+<!-- Main Stick end -->
+</div>
+</div> 
 
-
+    
     <div class="welcome_clicnic_area" style="padding-top: 0px;">
         <div class="container">
             <div class="row">

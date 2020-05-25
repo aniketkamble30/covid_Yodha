@@ -4,10 +4,10 @@
 {% block css %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/adminPageNew.css')}}">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+
 {% endblock %}
 
 {% block title %}
-
     <!-- slider_area_start -->
 
     <!-- slider_area_end -->
@@ -15,6 +15,18 @@
     <!-- welcome_clicnic_area_start -->
     <div class="welcome_clicnic_area" id="start_page">
         <div class="container">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for i in messages %}
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+						{{ i }}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					{% endfor %}
+				{% endif %}	
+			{% endwith %}
 			<center>
 				<button class="boxed-btn" onclick="myFunction('line')">Line Graph</button>
 				<button class="boxed-btn" onclick="myFunction('bar')">Bar Graph</button>
@@ -315,6 +327,9 @@
 <!-- Emergency_contact end -->
 <!-- footer start -->
 <script>
+
+	$('.alert').alert();
+
 	function myFunction(str){
 		if (str == 'line')
 		location.replace("{{ url_for('adminPageNew_line') }}")

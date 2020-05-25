@@ -1,4 +1,4 @@
-from flask import Flask, render_template,redirect,request,url_for,session, json, jsonify
+from flask import Flask, render_template,redirect,request,url_for,session, json, jsonify, flash
 from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -11,6 +11,7 @@ from india_stats import current_stats
 from plots_call import plot_day
 from india_pred import pred_list
 from ml_model import pred_maha
+import os, time
 
 app = Flask(__name__)
 app.secret_key = "qazsedcft"
@@ -109,14 +110,21 @@ class item(db.Model):
 
 @app.route("/")
 def home():
+    dt = datetime.now()
+    datestring=str(dt.day)+str(dt.month)
+    folder_path='static/img/plots/'+datestring
+        
     t, r,d, a, nc, nr, nd=current_stats()                                             
     f=plot_day()
     pc, pd, pr, gr=pred_list()
     predictions, growth_rate=pred_maha()
     
+    if not os.path.exists(folder_path):
+        time.sleep(10)
+    
     return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
                            pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
-                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+                           gm=(growth_rate[0]),gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
 
     
 @app.route("/index")
@@ -141,9 +149,11 @@ def contact():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if "user" in session:
-        return redirect(url_for("total"))
+    if 'user' in session:
+        flash('Already Logged In')
+        return redirect(url_for('total'))
     if "admin" in session:
+        flash('Please Logout First')
         return redirect('admin')
     if request.method == "POST":
         username = request.form["username"]
@@ -168,10 +178,11 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 
 def register():
-
     if 'user' in session:
-        return redirect(url_for('login'))
+        flash('Please Logout First')
+        return redirect(url_for('total'))
     if 'admin' in session:
+        flash('Please Logout First')
         return redirect(url_for('admin'))
 
     addr=locate()
@@ -222,9 +233,11 @@ def addList():
 @app.route('/adminlogin')
 def adminlogin(): 
     if "user" in session:
-        return redirect("login")
+        flash('Please Logout First')
+        return redirect("total")
     if "admin" in session:
-        return redirect('admin')
+        flash('Already Logged In')
+        return redirect(url_for('admin'))
     
     return render_template("admin_login.html")
 
@@ -240,6 +253,7 @@ def admin():
 @app.route('/adminPageNew_line')
 def adminPageNew_line():
     if "admin" in session:
+        flash('Already Logged In')
         return render_template('adminPageNew_line.html', title='Cases in India',max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, len=len(Dates))
     return redirect('admin')
 
@@ -343,11 +357,15 @@ def hospitals():
 
 @app.route('/yodhaloggedin')
 def yodhaloggedins(): 
+    if 'admin' in session:
+        flash('Please Logout first')
+        return redirect(url_for('admin'))
     return render_template("yodhaloggedin.html")
 
 @app.route("/checkadmin",methods = ['GET', 'POST'])
 def checkadmin():
     if "admin" in session:
+        
         return redirect(url_for('admin'))
     if request.method == 'POST':
         username = request.form["username"]
@@ -391,8 +409,10 @@ def total():
 @app.route("/yodha")
 def yodha():
     if "user" in session:
-        return redirect('user')
+        flash('Please Logout First')
+        return redirect(url_for('total'))
     if "admin" in session:
+        flash('Please Logout First')
         return redirect('admin')
     return render_template('yodha.html')
 

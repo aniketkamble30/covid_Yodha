@@ -6,11 +6,25 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 {% endblock%}
 
 {% block title %}
+
 <div class="book_apointment_area">
     <div class="container">
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for i in messages %}
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					{{ i }}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{% endfor %}
+			{% endif %}	
+		{% endwith %}
             <div class="row justify-content-end">
 				<div class="responsive">
 					<form method="POST" action="{{ url_for('addList') }}">
@@ -424,7 +438,7 @@
 	
 	
 	<script>
-
+		$('.alert').alert();
 		$(document).ready(function(event){
 			$.ajax({
 				data: {
