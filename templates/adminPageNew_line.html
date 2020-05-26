@@ -4,6 +4,8 @@
 {% block css %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/adminPageNew.css')}}">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 {% endblock %}
 
 {% block title %}
@@ -20,7 +22,7 @@
 				<button class="boxed-btn" onclick="myFunction('bar')">Bar Graph</button>
                 <button class="boxed-btn" onclick="myFunction('pie')">Pie Chart</button>
 				<a href="#map_start"><button class="boxed-btn" >Blood Donation Map</button></a>
-				<a href="/index "><button class="boxed-btn" >Maps and Predictions</button></a>
+				<a href="#predict"><button class="boxed-btn" >Predictions</button></a>
             </center>
             <br>
             <br>
@@ -301,8 +303,83 @@
 				<div class="col-md-6" id="Pie_graph"></div>
                   <div class="col-md-3"></div>
                 </div> -->
-              </div>
+	</div>
+</div>
+
+<!-- Prediction -->
+<div class="welcome_clicnic_area" style="padding-top: 50px; " id="predict">
+	<div class="container">
+		<div class="row align-items-center" style="display:flexbox;">
+			<div class="col-1"></div>
+			<div class="col-5">
+				<center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN MAHARASHTRA</h3></center>
+				<table class="table text-center table-hover table-borderless" style="font-family: 'Roboto';">
+					<thead>
+					  <tr>
+						<th scope="col">City</th>
+						<th scope="col">No. Of New Cases Predicted</th>
+						<th scope="col">Predicted Growth Rate</th>
+					  </tr>
+					</thead>
+					<tbody>
+						<tr class="text-primary">                        
+							<td>Mumbai</td>
+							<td class="text-info">{{pm}}</td>
+							<td class="text-danger">{{gm}}</td>
+						</tr>
+						<tr class="text-primary">                        
+						<td>Pune</td>
+						<td class="text-info">{{pp}}</td>
+						<td class="text-danger">{{gp}}</td>
+					  </tr>
+					  <tr class="text-primary">                        
+						<td>Thane</td>
+						<td class="text-info">{{pt}}</td>
+						<td class="text-danger">{{gt}}</td>
+					  </tr>
+					  <tr class="text-primary">                        
+						<td>Nagpur</td>
+						<td class="text-info">{{pnag}}</td>
+						<td class="text-danger">{{gnag}}</td>
+					  </tr>
+					  <tr class="text-primary">
+						<td>Nashik</td>
+						<td class="text-info">{{pnas}}</td>
+						<td class="text-danger">{{gnas}}</td>
+					  </tr>
+					</tbody>
+				</table>
 			</div>
+			<div class="col-5">
+				<center><h3 style="font-family: 'Roboto Slab'; font-size: medium; font-weight: 700;">PREDICTION FOR GROWTH TREND OF COVID-19 IN INDIA</h3></center>
+				<table class="table text-center table-hover table-borderless" style="font-family: 'Roboto';">
+					<tbody>
+					  <tr class="text-primary">
+						<td>No. of new cases predicted:</td>
+						<td>{{pred_c}}</td>
+					  </tr>
+					  <tr class="text-danger">
+						<td>No. of deaths predicted:</td>
+						<td>{{pred_d}}</td>
+					  </tr>
+					  <tr class="text-success">
+						<td>No. of recoveries predicted:</td>
+						<td>{{pred_r}}</td>
+					  </tr>
+					  <tr class="text-info">
+						<td>Growth Rate predicted:</td>
+						<td>{{growth}}</td>
+					  </tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-1"></div>
+		</div>
+		<br>
+		<i><center><caption>These predictions are based on our ML model running in the background.</caption></center></i>
+	</div>  
+  </div>  
+  <!-- Prediction -->
 			
             <div class="welcome_clicnic_area" style="padding-top: 40px;" id="map_start">
                 <div class="container">

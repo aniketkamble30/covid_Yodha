@@ -80,13 +80,15 @@
                 -->
         </div>
     </div>
-    <hr width="850px">
     <div class="expert_doctors_area p-0">
 
 <div class="row justify-content-center">
-    <a href="#slideshowContainer"><button class="boxed-btn" style="margin-right: 10px;">State Wise Cases</button></a>
-    <a href="#predict"><button class="boxed-btn" style="margin-right: 10px;">Predictions</button></a>
-    <a href="#updates"><button class="boxed-btn" style="margin-right: 10px;">COVID-19 Updates</button></a>
+    <a href="#slideshowContainer"><button class="boxed-btn" style="margin-right: 30px;">State Wise Cases</button></a>
+    <a href="#predict"><button class="boxed-btn" style="margin-right: 30px;">Predictions</button></a>
+    <a href="#guidelines"><button class="boxed-btn" style="margin-right: 10px;">Guidelines</button></a>
+    <br>
+    <br>
+    <br>
     <div class="col-lg-9 col-md-9">
         <div class="single_expert">
             <div class="expert_thumb">
@@ -127,7 +129,7 @@
 <br>
 
 <!-- NOICE -->
-<div class="welcome_clicnic_area" style="padding-top: 0px;" id="predict">
+<div class="welcome_clicnic_area" style="padding-top: 50px; " id="predict">
     <div class="container">
         <div class="row align-items-center" style="display:flexbox;">
             <div class="col-1"></div>
@@ -142,30 +144,30 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-primary">
+                        <tr class="text-primary">                        
                             <td>Mumbai</td>
-                            <td>{{pm}}</td>
-                            <td>{{gm}}</td>
+                            <td class="text-info">{{pm}}</td>
+                            <td class="text-danger">{{gm}}</td>
                         </tr>
-                        <tr class="text-primary">
+                        <tr class="text-primary">                        
                         <td>Pune</td>
-                        <td>{{pp}}</td>
-                        <td>{{gp}}</td>
+                        <td class="text-info">{{pp}}</td>
+                        <td class="text-danger">{{gp}}</td>
                       </tr>
-                        <tr class="text-primary">
+                      <tr class="text-primary">                        
                         <td>Thane</td>
-                        <td>{{pt}}</td>
-                        <td>{{gt}}</td>
+                        <td class="text-info">{{pt}}</td>
+                        <td class="text-danger">{{gt}}</td>
                       </tr>
-                        <tr class="text-primary">
+                      <tr class="text-primary">                        
                         <td>Nagpur</td>
-                        <td>{{pnag}}</td>
-                        <td>{{gnag}}</td>
+                        <td class="text-info">{{pnag}}</td>
+                        <td class="text-danger">{{gnag}}</td>
                       </tr>
-                        <tr class="text-primary">
+                      <tr class="text-primary">
                         <td>Nashik</td>
-                        <td>{{pnas}}</td>
-                        <td>{{gnas}}</td>
+                        <td class="text-info">{{pnas}}</td>
+                        <td class="text-danger">{{gnas}}</td>
                       </tr>
                     </tbody>
                 </table>
@@ -195,11 +197,13 @@
             </div>
             <div class="col-1"></div>
         </div>
+        <br>
+        <i><center><caption>These predictions are based on our ML model running in the background.</caption></center></i>
     </div>  
 </div>  
 <!-- NOICE -->
 
-<table>
+<!-- <table>
     <tr>
         <td>
             <div class="welcome_clicnic_area" style="padding-top: 0px;" id="predict">
@@ -275,10 +279,10 @@
 </div>
 </td>
 </tr>
-</table>
+</table> -->
     
 <hr width="850px">
-<div class="welcome_clicnic_area" id="updates">
+<div class="welcome_clicnic_area" id="guidelines">
     <div class="row ">
         <div class="col-2">
             <!-- <div class="card" style="box-shadow: 10px 10px aliceblue;">
@@ -410,7 +414,7 @@
 </div> 
 
     
-    <div class="welcome_clicnic_area" style="padding-top: 0px;">
+    <div class="welcome_clicnic_area" style="padding-top: 0px; margin-top: -120px;">
         <div class="container">
             <div class="row">
                 <div class="col-4"></div>

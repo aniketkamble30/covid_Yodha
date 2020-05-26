@@ -124,7 +124,7 @@ def home():
     
     return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
                            pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
-                           gm=(growth_rate[0]),gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
 
     
 @app.route("/index")
@@ -247,21 +247,46 @@ def admin():
     if "admin" in session:
         bar_labels=labels
         bar_values=values
-        return render_template('adminPageNew.html', title='Cases in India', max=17000, labels=bar_labels, values=bar_values,max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, which_ = 'bar')
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew.html', title='Cases in India', max=17000, labels=bar_labels, values=bar_values,max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, which_ = 'bar',pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
     return redirect('admin')
 
 @app.route('/adminPageNew_line')
 def adminPageNew_line():
     if "admin" in session:
-        flash('Already Logged In')
-        return render_template('adminPageNew_line.html', title='Cases in India',max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, len=len(Dates))
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew_line.html', title='Cases in India',max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, len=len(Dates),pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
     return redirect('admin')
 
 @app.route('/adminPageNew_pie')
 def adminPageNew_pie():
-    pie_labels = labels
-    pie_values = values
-    return render_template('adminPageNew_pie.html', title='Indian Pie Chart', max=17000, set=zip(values, labels, colors))
+    if "admin" in session:
+        pie_labels = labels
+        pie_values = values
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew_pie.html', title='Indian Pie Chart', max=17000, set=zip(values, labels, colors),pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+    return redirect('admin')
 
 @app.route('/mumbai')
 def mumbai():
@@ -360,6 +385,10 @@ def yodhaloggedins():
     if 'admin' in session:
         flash('Please Logout first')
         return redirect(url_for('admin'))
+    if 'user' in session:
+        flash('Please Logout first')
+        return redirect(url_for('admin'))
+    
     return render_template("yodhaloggedin.html")
 
 @app.route("/checkadmin",methods = ['GET', 'POST'])

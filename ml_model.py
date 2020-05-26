@@ -21,7 +21,7 @@ def generate_pred(i):
         for n in range(1,len(y)+1):
             X.append([n])
 
-        poly_reg = PolynomialFeatures(degree = 3)
+        poly_reg = PolynomialFeatures(degree = 4)
         X_poly = poly_reg.fit_transform(X)
         poly_reg.fit(X_poly, y)
         lin_reg_2 = LinearRegression()
