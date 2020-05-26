@@ -10,30 +10,27 @@
                     <font size="12"><b style="color: #032f69;  font-family: 'Calibri';">Today's time table</b></font>
                 </h1>
                  <h2 class="" style="text-align: center;">
-                    <b style="color: #032f69;  font-family: 'Calibri';">Name: Sankar</b>
+                    <b style="color: #032f69;  font-family: 'Calibri';">Name: Aditya Bhatt</b>
                 </h2>
                  <h3 class="" style="text-align: center;">
                     <b style="color: #032f69;  font-family: 'Calibri';">Time slot: Evening</b>
                 </h3>
+                <h3 class="" style="text-align: center;">
+                    <b style="color: #032f69;  font-family: 'Calibri';">Your Area: Kharghar</b>
+                </h3>
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
-			
-            <div class="container">
 
                 <h1 class="" style="text-align: center;">
                     <font size="12"><b style="color: #032f69;  font-family: 'Calibri';">Volunteer task</b></font>
-                </h1>
-                 
+                </h1>                
 
                 <p class="lead"> </p>
                 
-            </div>
+            
 
         </div>
-        <div class="row justify-content-center">
-        <!-- <center><h1>Sealed User</h1></center> -->
-            </div> 
-            <br><br><br><br>
+            <!-- <br><br><br><br>
             <div class="row">
                 <h2>Your Requirements</h2>
             </div>
@@ -104,6 +101,70 @@
                 <div class="col-sm-4 align-items-center" style="padding-top: 80px ;">
                     <center><button class="boxed-btn3" onclick="myFunction2()" id="button2">Delivered</button></center>
                 </div>
+            </div> -->
+            <div class="quality_area" style="margin-top: -70px;">
+                <div class="container">
+                    <center><h1 style="font-family: 'Roboto';">Pending Delivery in your Area</h1></center>
+                    <hr width="400px">    
+                    <br>
+                    <div class="row justify-content-center">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Cart List</th>
+                                        <th scope="col">Total Amount</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Delivery Status</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr id="aniket">
+                                        <th scope="row">aniket</th>
+                                        <td>
+                                            WHEAT <br>
+                                            WATER <br>
+                                            BISCUIT
+                                        </td>
+                                        <td>
+                                            &#8377; 175 
+                                        </td>
+                                        <td>
+                                            Shree Tower, plot no.16, sector - 20, kharghar, Navi Mumbai - 410210
+                                        </td>
+                                        <td>
+                                            <h4 style="color: red;" id="notDeliveredAn">Not Delivered</h4>
+                                            <h4 style="color: green;" id="DeliveredAn" hidden>Delivered</h4>
+                                            <button class="boxed-btn3" onclick="myFunction(aniket);">Mark as Delivered</button>
+                                        </td>                        
+                                      </tr>
+                                      <tr id="amit">
+                                          <th scope="col">amit</th>
+                                          <td>
+                                            RICE    <br>
+                                            CHIPS   <br>
+                                            VEGETABLE OIL   <br>
+                                            FLOUR
+                                          </td>
+                                          <td>
+                                            &#8377; 5615
+                                          </td>
+                                          <td>
+                                            Bhoomi Heights, plot no. 596, sector - 8, kharghar, Navi Mumbai - 410210
+                                          </td>
+                                          <td>
+                                            <h4 style="color: red;" id="notDeliveredAm">Not Delivered</h4>
+                                            <h4 style="color: green;" id="DeliveredAm" hidden>Delivered</h4>
+                                            <button class="boxed-btn3 "onclick="myFunction2(amit);">Mark as Delivered</button>
+                                          </td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                              
+                        </div>  
+                </div>
             </div>
     </div>
 </div>
@@ -111,10 +172,19 @@
 <script>  
 
 function myFunction() {
-  document.getElementById("card1").style.backgroundColor = "lightgreen";
+    document.getElementById('aniket').style.backgroundColor = "#56f06d";
+    document.getElementById('notDeliveredAn').innerHTML = "Delivered";
 }
 function myFunction2() {
-  document.getElementById("card2").style.backgroundColor = "lightgreen";
+    document.getElementById('amit').style.backgroundColor = "#56f06d";
+        document.getElementById('notDeliveredAm').innerHTML = "Delivered";
+}
+
+function deliveredTo(){
+    
+        
+        
+    
 }
 
 </script>

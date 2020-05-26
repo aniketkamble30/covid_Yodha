@@ -389,7 +389,12 @@ def yodhaloggedins():
         flash('Please Logout first')
         return redirect(url_for('admin'))
     
-    return render_template("yodhaloggedin.html")
+    data = item.query.all()
+    usernames = set()
+    for i in range(len(data)):
+        usernames.add(data[i].username)
+
+    return render_template("yodhaloggedin.html", data = data, usernames = usernames, var = 0)
 
 @app.route("/checkadmin",methods = ['GET', 'POST'])
 def checkadmin():

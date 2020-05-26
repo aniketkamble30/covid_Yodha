@@ -49,7 +49,7 @@ def india_pred(i):
     
     
     
-dataset = dataset[:-1]
+# dataset = dataset[:-1]
 prediction=[]
 growth_rate=[]
 current=[]

@@ -3,6 +3,48 @@
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<style>
+    /* * {box-sizing: border-box} */
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+</style>
 {% endblock %}
 {% block title %}
 
@@ -83,7 +125,7 @@
     <div class="expert_doctors_area p-0">
 
 <div class="row justify-content-center">
-    <a href="#slideshowContainer"><button class="boxed-btn" style="margin-right: 30px;">State Wise Cases</button></a>
+    <a href="#state_show"><button class="boxed-btn" style="margin-right: 30px;">State Wise Cases</button></a>
     <a href="#predict"><button class="boxed-btn" style="margin-right: 30px;">Predictions</button></a>
     <a href="#guidelines"><button class="boxed-btn" style="margin-right: 10px;">Guidelines</button></a>
     <br>
@@ -102,7 +144,7 @@
 </div>
 </div>
 <hr width="850px">
-<div class="expert_doctors_area p-0">
+<!-- <div class="expert_doctors_area p-0">
         <div class="container" id="slideshowContainer">
             <div class="row justify-content-center">
                 <div class="col-lg-9 col-md-9">
@@ -123,13 +165,184 @@
                 </div>
             </div>
         </div>
-    </div>
-    <br>
+    </div> -->
+<br>
 <br>
 <br>
 
+<div class="expert_doctors_area p-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="slideshow-container" id="state_show">
+
+                <div class="mySlides">
+                  <img src="static/img/plots/{{folder}}/Maharashtra.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                  <img src="static/img/plots/{{folder}}/Andhra Pradesh.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                  <img src="static/img/plots/{{folder}}/Gujarat.png" style="width:100%">
+                </div>
+
+                <div class="mySlides">
+                    <img src="static/img/plots/{{folder}}/Madhya Pradesh.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                    <img src="static/img/plots/{{folder}}/Rajasthan.png" style="width:100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Andaman and Nicobar.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Arunachal Pradesh.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Assam.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Assam.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Chandigarh.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Chhattisgarh.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Dadra and Nagar Haveli.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Daman and Diu.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Goa.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Haryana.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Himachal Pradesh.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Jammu and Kashmir.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}Jharkhand.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Karnataka.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Kerala.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Lakshadweep.png" style="width=100%">
+                </div>
+
+                
+                    <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Manipur.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Meghalaya.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Mizoram.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Nagaland.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/NCT of Delhi.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Odisha.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Puducherry.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Punjab.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Sikkim.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Tamil Nadu.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Tamil Nadu.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Telangana.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Tripura.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/Uttar Pradesh.png" style="width=100%">
+                </div>
+
+                <div class='mySlides'>
+                    <img src="static/img/plots/{{folder}}/West Bengal.png" style="width=100%">
+                </div>
+
+
+
+                
+                
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
+            </div> 
+            <div class="single_expert">
+            
+                <div class="expert_thumb">
+               
+                </div>
+                <div class="experts_name text-center">
+                    <center><h3>State-wise Density of COVID-19 Positive Patients </h3></center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- NOICE -->
-<div class="welcome_clicnic_area" style="padding-top: 50px; " id="predict">
+<div class="welcome_clicnic_area" style="padding-top: 50px;" id="predict">
     <div class="container">
         <div class="row align-items-center" style="display:flexbox;">
             <div class="col-1"></div>
@@ -469,64 +682,90 @@
     date = date.toString();
     document.getElementById("demo").innerHTML = date +" "+ n;
 
+    // SLIDE SHOW
+    var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  
+  slides[slideIndex-1].style.display = "block";  
+  
+}
+    // SLIDE SHOW END
+
+    // var i=0;
+    // var images=[];
+    // var time=3000;
+
+    // images[0]='static/img/plots/{{folder}}/india.png';
+    // images[1]='static/img/plots/{{folder}}/Andaman and Nicobar.png';
+    // images[2]='static/img/plots/{{folder}}/Andhra Pradesh.png';
+    // images[3]='static/img/plots/{{folder}}/Arunachal Pradesh.png';
+    // images[4]='static/img/plots/{{folder}}/Assam.png';
+    // images[5]='static/img/plots/{{folder}}/Assam.png';
+    // images[6]='static/img/plots/{{folder}}/Chandigarh.png';
+    // images[7]='static/img/plots/{{folder}}/Chhattisgarh.png';
+    // images[8]='static/img/plots/{{folder}}/Dadra and Nagar Haveli.png';
+    // images[9]='static/img/plots/{{folder}}/Daman and Diu.png';
+    // images[10]='static/img/plots/{{folder}}/Goa.png';
+    // images[11]='static/img/plots/{{folder}}/Gujarat.png';
+    // images[12]='static/img/plots/{{folder}}/Haryana.png';
+    // images[13]='static/img/plots/{{folder}}/Himachal Pradesh.png';
+    // images[14]='static/img/plots/{{folder}}/Jammu and Kashmir.png';
+    // images[15]='static/img/plots/{{folder}}Jharkhand.png';
+    // images[16]='static/img/plots/{{folder}}/Karnataka.png';
+    // images[17]='static/img/plots/{{folder}}/Kerala.png';
+    // images[18]='static/img/plots/{{folder}}/Lakshadweep.png';
+    // images[19]='static/img/plots/{{folder}}/MadhyaPradesh.png';
+    // images[20]='static/img/plots/{{folder}}/Maharashtra.png';
+    // images[21]='static/img/plots/{{folder}}/Manipur.png';
+    // images[22]='static/img/plots/{{folder}}/Meghalaya.png';
+    // images[23]='static/img/plots/{{folder}}/Mizoram.png';
+    // images[24]='static/img/plots/{{folder}}/Nagaland.png';
+    // images[25]='static/img/plots/{{folder}}/NCT of Delhi.png';
+    // images[26]='static/img/plots/{{folder}}/Odisha.png';
+    // images[27]='static/img/plots/{{folder}}/Puducherry.png';
+    // images[28]='static/img/plots/{{folder}}/Punjab.png';
+    // images[29]='static/img/plots/{{folder}}/Rajasthan.png';
+    // images[30]='static/img/plots/{{folder}}/Sikkim.png';
+    // images[31]='static/img/plots/{{folder}}/Tamil Nadu.png';
+    // images[32]='static/img/plots/{{folder}}/Tamil Nadu.png';
+    // images[33]='static/img/plots/{{folder}}/Telangana.png';
+    // images[34]='static/img/plots/{{folder}}/Tripura.png';
+    // images[35]='static/img/plots/{{folder}}/Uttar Pradesh.png';
+    // images[36]='static/img/plots/{{folder}}/West Bengal.png';
+
+    
     
 
-    var i=0;
-    var images=[];
-    var time=3000;
+    // function changeImg(){
+    //     document.slide.src=images[i];
 
-    images[0]='static/img/plots/{{folder}}/india.png';
-    images[1]='static/img/plots/{{folder}}/Andaman and Nicobar.png';
-    images[2]='static/img/plots/{{folder}}/Andhra Pradesh.png';
-    images[3]='static/img/plots/{{folder}}/Arunachal Pradesh.png';
-    images[4]='static/img/plots/{{folder}}/Assam.png';
-    images[5]='static/img/plots/{{folder}}/Assam.png';
-    images[6]='static/img/plots/{{folder}}/Chandigarh.png';
-    images[7]='static/img/plots/{{folder}}/Chhattisgarh.png';
-    images[8]='static/img/plots/{{folder}}/Dadra and Nagar Haveli.png';
-    images[9]='static/img/plots/{{folder}}/Daman and Diu.png';
-    images[10]='static/img/plots/{{folder}}/Goa.png';
-    images[11]='static/img/plots/{{folder}}/Gujarat.png';
-    images[12]='static/img/plots/{{folder}}/Haryana.png';
-    images[13]='static/img/plots/{{folder}}/Himachal Pradesh.png';
-    images[14]='static/img/plots/{{folder}}/Jammu and Kashmir.png';
-    images[15]='static/img/plots/{{folder}}Jharkhand.png';
-    images[16]='static/img/plots/{{folder}}/Karnataka.png';
-    images[17]='static/img/plots/{{folder}}/Kerala.png';
-    images[18]='static/img/plots/{{folder}}/Lakshadweep.png';
-    images[19]='static/img/plots/{{folder}}/MadhyaPradesh.png';
-    images[20]='static/img/plots/{{folder}}/Maharashtra.png';
-    images[21]='static/img/plots/{{folder}}/Manipur.png';
-    images[22]='static/img/plots/{{folder}}/Meghalaya.png';
-    images[23]='static/img/plots/{{folder}}/Mizoram.png';
-    images[24]='static/img/plots/{{folder}}/Nagaland.png';
-    images[25]='static/img/plots/{{folder}}/NCT of Delhi.png';
-    images[26]='static/img/plots/{{folder}}/Odisha.png';
-    images[27]='static/img/plots/{{folder}}/Puducherry.png';
-    images[28]='static/img/plots/{{folder}}/Punjab.png';
-    images[29]='static/img/plots/{{folder}}/Rajasthan.png';
-    images[30]='static/img/plots/{{folder}}/Sikkim.png';
-    images[31]='static/img/plots/{{folder}}/Tamil Nadu.png';
-    images[32]='static/img/plots/{{folder}}/Tamil Nadu.png';
-    images[33]='static/img/plots/{{folder}}/Telangana.png';
-    images[34]='static/img/plots/{{folder}}/Tripura.png';
-    images[35]='static/img/plots/{{folder}}/Uttar Pradesh.png';
-    images[36]='static/img/plots/{{folder}}/West Bengal.png';
+    //     if(i < images.length -1){
+    //         i++;
+    //     }
+    //     else{
+    //         i=0;
+    //     }
+    //     setTimeout("changeImg()", time);
+    // }
 
-
-    function changeImg(){
-        document.slide.src=images[i];
-
-        if(i < images.length -1){
-            i++;
-        }
-        else{
-            i=0;
-        }
-        setTimeout("changeImg()", time);
-    }
-
-    window.onload=changeImg;
+    // window.onload=changeImg;
 
 
 
