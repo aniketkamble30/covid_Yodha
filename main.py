@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template,redirect,request,url_for,session, json, jsonify, flash
 from sqlalchemy.sql import func
 from flask_sqlalchemy import SQLAlchemy
@@ -101,7 +102,7 @@ class item(db.Model):
     username = db.Column(db.String(20))
     description = db.Column(db.String(20))
     amount = db.Column(db.Integer)
-    value1 = db.Column(db.Integer)
+    value1= db.Column(db.Integer)
     total = db.Column(db.Integer)
     
     
@@ -124,7 +125,7 @@ def home():
     
     return render_template('index.html',tot=t, dea=d, rec=r, act=a, newcases=nc, newrec=nc, newdea=nd, folder=f, pred_c=pc, pred_d=pd,
                            pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
-                           gm=(growth_rate[0]),gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
 
     
 @app.route("/index")
@@ -157,7 +158,7 @@ def login():
         return redirect('admin')
     if request.method == "POST":
         username = request.form["username"]
-        password1 = request.form['password']
+        password1 = request.form["password"]
         login = users.query.filter_by(username=username, password1=password1).first()
         if login is not None:
             session['user'] = username
@@ -190,7 +191,7 @@ def register():
     if request.method == "POST":
         username = request.form['username']
         phone = request.form['phone']
-        password1 = request.form['password']
+        password1 = request.form['password1']
         register = users(username = username, phone=phone, password1 = password1)
         db.session.add(register)
         db.session.commit()
@@ -223,7 +224,7 @@ def addList():
         amt = int(request.form['amt'])
         val = int(request.form['val'])
         total = amt * val
-        query = item(username = name, description = desc, amount = amt, value1 = val, total = total)
+        query = item(username = name, description = desc, amount = amt, value1= val, total = total)
         db.session.add(query)
         db.session.commit()
         return redirect(url_for('total'))
@@ -247,21 +248,46 @@ def admin():
     if "admin" in session:
         bar_labels=labels
         bar_values=values
-        return render_template('adminPageNew.html', title='Cases in India', max=17000, labels=bar_labels, values=bar_values,max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, which_ = 'bar')
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew.html', title='Cases in India', max=17000, labels=bar_labels, values=bar_values,max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, which_ = 'bar',pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
     return redirect('admin')
 
 @app.route('/adminPageNew_line')
 def adminPageNew_line():
     if "admin" in session:
-        flash('Already Logged In')
-        return render_template('adminPageNew_line.html', title='Cases in India',max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, len=len(Dates))
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew_line.html', title='Cases in India',max_of_dis=max_of_dis,dates=dates,district_data=district_data,district_name=district_name,no_of_dis=no_of_dis, len=len(Dates),pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
     return redirect('admin')
 
 @app.route('/adminPageNew_pie')
 def adminPageNew_pie():
-    pie_labels = labels
-    pie_values = values
-    return render_template('adminPageNew_pie.html', title='Indian Pie Chart', max=17000, set=zip(values, labels, colors))
+    if "admin" in session:
+        pie_labels = labels
+        pie_values = values
+        # Prediction
+        t, r,d, a, nc, nr, nd=current_stats()                                             
+        f=plot_day()
+        pc, pd, pr, gr=pred_list()
+        predictions, growth_rate=pred_maha()
+        # Prediction end
+        return render_template('adminPageNew_pie.html', title='Indian Pie Chart', max=17000, set=zip(values, labels, colors),pred_c=pc, pred_d=pd,
+                           pred_r=pr, growth=gr, pm=predictions[0], pp=predictions[1], pt=predictions[2],pnag=predictions[3],pnas=predictions[4],
+                           gm=growth_rate[0],gp=growth_rate[1],gt=growth_rate[2],gnag=growth_rate[3],gnas=growth_rate[4])
+    return redirect('admin')
 
 @app.route('/mumbai')
 def mumbai():
@@ -360,7 +386,16 @@ def yodhaloggedins():
     if 'admin' in session:
         flash('Please Logout first')
         return redirect(url_for('admin'))
-    return render_template("yodhaloggedin.html")
+    if 'user' in session:
+        flash('Please Logout first')
+        return redirect(url_for('admin'))
+    
+    data = item.query.all()
+    usernames = set()
+    for i in range(len(data)):
+        usernames.add(data[i].username)
+
+    return render_template("yodhaloggedin.html", data = data, usernames = usernames, var = 0)
 
 @app.route("/checkadmin",methods = ['GET', 'POST'])
 def checkadmin():
@@ -369,7 +404,7 @@ def checkadmin():
         return redirect(url_for('admin'))
     if request.method == 'POST':
         username = request.form["username"]
-        password1 = request.form['password']
+        password1 = request.form["password"]
         login = adminregister.query.filter_by(username=username, password1=password1).first()
         if login is not None:
             session["admin"] = username
@@ -380,7 +415,7 @@ def checkadmin():
 
 	# if request.method == 'POST':
     #     username = request.form["username"]
-    #     password1 = request.form['password']
+    #     password1 = request.form["password"]
     #     login = adminregister.query.filter_by(username=username, password1=password1).first()
     #     if login is not None:
     #         return redirect(url_for("admin"))
