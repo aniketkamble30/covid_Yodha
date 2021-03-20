@@ -23,7 +23,7 @@ geopandas==0.7.0
 ibm-db-sa==0.3.5
 idna==2.9
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 joblib==0.15.1
 kiwisolver==1.2.0
 MarkupSafe==1.1.1
