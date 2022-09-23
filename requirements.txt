@@ -33,7 +33,7 @@ mysql-connector-python==8.0.20
 numpy @ file:///D:/bld/numpy_1588605171598/work
 pandas==1.0.3
 plotly==4.7.1
-protobuf==3.11.3
+protobuf==3.18.3
 pycparser==2.20
 PyMySQL==0.9.2
 pyparsing==2.4.7
